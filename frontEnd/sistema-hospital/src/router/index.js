@@ -35,8 +35,6 @@ const router = createRouter({
       name: 'piePagina',
       component: piePaginaView
     }
-  
-   
     
   ]
 })
