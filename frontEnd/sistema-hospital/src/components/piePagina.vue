@@ -1,6 +1,6 @@
 <template>
     <footer class="footer">
-      <p>&copy; PRIVILAGE CARE. Desarrollo por alumnos de Tecnologias de la información UTXJ.</p>
+      <p>&copy; PRIVILAGE CARE. Desarrollo por alumnos de Tecnologías de la información UTXJ.</p>
     </footer>
   </template>
   
