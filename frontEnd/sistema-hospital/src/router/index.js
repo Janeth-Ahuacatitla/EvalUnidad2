@@ -29,7 +29,10 @@ const router = createRouter({
         name: 'personas',
         component: PersonasView 
       }]
-    }  
+    }
+  
+   
+    
   ]
 })
 
