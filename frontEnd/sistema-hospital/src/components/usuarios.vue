@@ -7,7 +7,10 @@ import router from '@/router';
 					<h3 class="py-4 text-2xl text-center text-gray-800 dark:text-white">PRIVILAGE CARE HOSPITAL</h3>
 
 					<Usuario></Usuario>
-					<Personas></Personas>						<div class="mb-6 text-center">
+					<Personas></Personas>
+					<piePagina></piePagina>
+
+					<div class="mb-6 text-center">
 							<button
                                 class="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600"
                                 type="button"
@@ -22,10 +25,13 @@ import router from '@/router';
 <script>
 import Personas from './personas.vue'
 import Usuario from './usuario.vue'
+import piePagina from './piePagina.vue'
+
 export default{
 	components:{
 		Personas,
-		Usuario
+		Usuario,
+		piePagina
 	}
 }
 </script>

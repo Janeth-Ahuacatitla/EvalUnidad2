@@ -4,7 +4,7 @@ import loginView from '@/components/login.vue'
 import userRegister from '@/components/userRegister.vue'
 import dashboard from '@/components/dashboard.vue'
 import PersonasView from '@/components/personas.vue'
-
+import piePaginaView from '@/components/piePagina.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,6 +29,11 @@ const router = createRouter({
         name: 'personas',
         component: PersonasView 
       }]
+    },
+    {
+      path: '/piePagina',
+      name: 'piePagina',
+      component: piePaginaView
     }
   
    

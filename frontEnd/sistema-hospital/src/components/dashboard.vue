@@ -56,6 +56,7 @@ folder_managed
                <ul id="dropdown-example0" class="hidden py-2 space-y-2">
                      <li>
                         <RouterLink to="/personas">
+                        
                         <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Personas</a>
                      </RouterLink>
                      </li>
@@ -221,6 +222,7 @@ folder_managed
 
 <div class="p-4 sm:ml-64">
    <router-view></router-view>
+   
    <!-- 
    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
       <div class="grid grid-cols-3 gap-4 mb-4">
@@ -323,5 +325,14 @@ folder_managed
    </div> -->
 </div>
 
+<piePaginaView style="position: fixed; bottom: 0; width: 100%;" ></piePaginaView>
     
     </template>
+<script>
+import piePaginaView from './piePagina.vue'
+    export default{
+       components:{
+         piePaginaView,
+       }
+    }
+   </script>
