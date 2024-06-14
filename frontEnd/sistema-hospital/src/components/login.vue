@@ -30,7 +30,10 @@
                         </path>
                     </svg>
                 </div>
+                
+            <RouterLink to="dashboard">
                 <button class="bg-[#002D74] text-white py-2 rounded-xl hover:scale-105 duration-300 hover:bg-[#206ab1] font-medium" type="submit">Inicia Sesión</button>
+            </RouterLink>
             </form>
             
         
