@@ -227,12 +227,14 @@
 							</div>
 						</div>
 						<div class="mb-6 text-center">
+                            <RouterLink to="/dashboard">
 							<button
                                 class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 dark:bg-blue-700 dark:text-white dark:hover:bg-blue-900 focus:outline-none focus:shadow-outline"
                                 type="button"
                             >
-                                Registrar Persona
+                                Registrarse
                             </button>
+                        </RouterLink>
 						</div>
 						<hr class="mb-6 border-t" />
 						<div class="text-center">

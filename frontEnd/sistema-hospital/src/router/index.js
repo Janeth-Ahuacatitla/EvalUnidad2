@@ -5,6 +5,8 @@ import userRegister from '@/components/userRegister.vue'
 import dashboard from '@/components/dashboard.vue'
 import PersonasView from '@/components/personas.vue'
 import piePaginaView from '@/components/piePagina.vue'
+import estudiosView from '@/components/estudios.vue'
+import resultadoEstudiosView from '@/components/resultadoEstudios.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,6 +30,16 @@ const router = createRouter({
         path: '/personas',
         name: 'personas',
         component: PersonasView 
+      },
+      {
+        path: '/estudios',
+        name: 'estudios',
+        component: estudiosView 
+      },
+      {
+        path: '/resultadoEstudios',
+        name: 'resultadoEstudios',
+        component: resultadoEstudiosView 
       }]
     },
     {
