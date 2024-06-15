@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
 <section class="bg-gray-100 min-h-screen flex box-border justify-center items-center">
     <div class="bg-[#dfa674] rounded-2xl flex max-w-3xl p-5 items-center">
         <div class="md:w-1/2 px-8">
@@ -51,4 +51,48 @@
         </div>
     </div>
 </section>
+</template> -->
+
+
+<template>
+    <div class="bg-cover bg-center bg-fixed" style="background-image: url('https://picsum.photos/1920/1080')">
+    <div class="h-screen flex justify-center items-center">
+        <div class="bg-white mx-4 p-8 rounded shadow-md w-full md:w-1/2 lg:w-1/3">
+            <h1 class="text-3xl font-bold mb-8 text-center">Iniciar Sesión</h1>
+            <form>
+                <div class="mb-4">
+                    <label class="block font-semibold text-gray-700 mb-2" for="email">
+                        Correo Electrónico
+                    </label>
+                    <input
+                        class="border rounded w-full py-2 px-3 text-gray-500 leading-tight focus:outline-none focus:shadow-outline"
+                        id="email" type="email" placeholder="Correo Electrónico" />
+                </div>
+                <div class="mb-4">
+                    <label class="block font-semibold text-gray-700 mb-2" for="password">
+                        Contraseña
+                    </label>
+                    <input
+                        class="border rounded w-full py-2 px-3 text-gray-500 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                        id="password" type="password" placeholder="Contraseña" />
+                    <a class="text-gray-600 hover:text-gray-800" href="#">Forgot your password?</a>
+                </div>
+                <div class="mb-6">
+                    <button
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        type="button">
+                        Iniciar Sesión
+                    </button>
+                </div>
+                
+            <div class="mt-4 text-sm flex justify-between items-center container-mr">
+                <p class="mr-3 md:mr-0 ">Aún no tienes una cuenta?</p>
+                <RouterLink to="register">
+                <button class="hover:border register text-white bg-[#002D74] hover:border-gray-400 rounded-xl py-2 px-5 hover:scale-110 hover:bg-[#002c7424] font-semibold duration-300">Registrarse</button>
+            </RouterLink>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
 </template>
