@@ -1,22 +1,8 @@
-<template>
-<div class="xl bg-yellow-500 text-white text-center p-5">
-    <div class="columns-3">
-        <div class="xl bg-yellow-100 text-white text-center p-5">
-    <span class="box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 ...">
-        BIENVENIDO<br>
-        Hospital
-    </span>
-        </div>
-
-<div class="xl bg-yellow-300 text-white text-center p-5"></div>
-<div class="xl bg-yellow-200 text-white text-center p-5"></div>
-</div>
-</div>
-
+<!-- <template>
     <section class="bg-gray-100 min-h-screen flex box-border justify-center items-center">
     <div class="bg-[#dfa674] rounded-2xl flex max-w-3xl p-5 items-center">
         <div class="md:w-1/2 px-8">
-            <h2 class="font-bold text-3xl text-[#002D74]">Registro</h2>
+            <h2 class="font-bold text-3xl text-[#002D74]">Registro Personas</h2>
 
             <form action="" class="flex flex-col gap-4">
                 <input class="p-2 mt-8 rounded-xl border" type="text" name="nombre" placeholder="Nombre">
@@ -55,7 +41,7 @@
                         </path>
                     </svg>
                 </div>
-                <button class="bg-[#002D74] text-white py-2 rounded-xl hover:scale-105 duration-300 hover:bg-[#206ab1] font-medium" type="submit">Registrarse</button>
+                <button class="bg-[#002D74] text-white py-2 rounded-xl hover:scale-105 duration-300 hover:bg-[#206ab1] font-medium" type="submit">Registrar Usuario</button>
             </form>
             <RouterLink to="/">
             <div class="mt-10 text-sm border-b border-gray-500 py-5 playfair tooltip">Forget password?</div>
@@ -70,4 +56,201 @@
         </div>
     </div>
 </section>
+</template> -->
+
+<template>
+    <!-- source: https://gist.github.com/nraloux/bce10c4148380061781b928cdab9b193 -->
+<!-- I have added support for dark mode and improved UI -->
+
+<div class="h-full bg-gray-400 dark:bg-gray-900">
+	<!-- Container -->
+	<div class="mx-auto">
+		<div class="flex justify-center px-6 py-12">
+			<!-- Row -->
+			<div class="w-full xl:w-3/4 lg:w-11/12 flex">
+				<!-- Col -->
+				<div class="w-full h-auto bg-gray-400 dark:bg-gray-800 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"
+					style="background-image: url('https://previews.123rf.com/images/dotshock/dotshock1511/dotshock151102041/48036190-grupo-de-personal-m%C3%A9dico-en-el-hospital-el-equipo-de-m%C3%A9dicos-de-pie-juntos.jpg')"></div>
+				<!-- Col -->
+				<div class="w-full lg:w-7/12 bg-white dark:bg-gray-700 p-5 rounded-lg lg:rounded-l-none">
+					<h3 class="py-4 text-2xl text-center text-gray-800 dark:text-white">Registro</h3>
+					<form class="px-8 pt-6 pb-8 mb-4 bg-white dark:bg-gray-800 rounded">
+						<div class="mb-4 md:flex md:justify-between">
+							<div class="mb-4 md:mr-2 md:mb-0">
+								<label class="block mb-2 text-sm font-bold text-gray-700 dark:text-white" for="name">
+                                    Nombre
+                                </label>
+								<input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="name"
+                                    type="text"
+                                    placeholder="Nombre"
+                                />
+							</div>
+
+                            <div class="mb-4 md:mr-2 md:mb-0">
+								<label class="block mb-2 text-sm font-bold text-gray-700 dark:text-white" for="primerApellido">
+                                    Primer Apellido
+                                </label>
+								<input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="primerApellido"
+                                    type="text"
+                                    placeholder="Primer Apellido"
+                                />
+							</div>
+
+							<div class="md:ml-2">
+								<label class="block mb-2 text-sm font-bold text-gray-700 dark:text-white" for="segundoApellido">
+                                    Segundo Apellido
+                                </label>
+								<input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="segundoApellido"
+                                    type="text"
+                                    placeholder="Segundo Apellido"
+                                />
+							</div>
+						</div>
+                        <div class="mb-4 md:flex md:justify-between">
+                            <div class="mb-4">
+                                <label class="block mb-2 text-sm font-bold text-gray-700 dark:text-white" for="curp">
+                                    CURP
+                                </label>
+                                <input
+                                    class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="curp"
+                                    type="text"
+                                    placeholder="CURP"
+                                />  
+                            </div>
+
+                            <div class="md:ml-2">
+								<label class="block mb-2 text-sm font-bold text-gray-700 dark:text-white" for="genero">
+                                    Género
+                                </label>
+								<input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="genero"
+                                    type="text"
+                                    placeholder="Género"
+                                />
+							</div>
+
+                            <div class="md:ml-2">
+								<label class="block mb-2 text-sm font-bold text-gray-700 dark:text-white" for="sangre">
+                                    Sangre
+                                </label>
+								<input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="sangre"
+                                    type="text"
+                                    placeholder="Sangre"
+                                />
+							</div>
+                        </div>
+
+                        <div class="mb-4 md:flex md:justify-between">
+                            <div class="mb-4">
+                                <label class="block mb-2 text-sm font-bold text-gray-700 dark:text-white" for="curp">
+                                    Fecha Nacimiento
+                                </label>
+                                <input
+                                    class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="fechaNac"
+                                    type="date"
+                                    placeholder="Fecha Nacimiento"
+                                />  
+                            </div>
+
+                            <div class="md:ml-2">
+								<label class="block mb-2 text-sm font-bold text-gray-700 dark:text-white" for="telefono">
+                                    Telefono
+                                </label>
+								<input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="telefono"
+                                    type="text"
+                                    placeholder="Telefono"
+                                />
+							</div>
+
+                            <div class="md:ml-2">
+								<label class="block mb-2 text-sm font-bold text-gray-700 dark:text-white" for="email">
+                                    Correo
+                                </label>
+								<input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="email"
+                                    type="email"
+                                    placeholder="Correo"
+                                />
+							</div>
+                        </div>
+
+						<div class="mb-4 md:flex md:justify-between">
+                            <div class="md:ml-2">
+								<label class="block mb-2 text-sm font-bold text-gray-700 dark:text-white" for="user">
+                                    Nombre Usuario
+                                </label>
+								<input
+                                    class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border border-gray-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="user"
+                                    type="text"
+                                    placeholder="Nombre Usuario"
+                                />
+								
+							</div>
+
+							<div class="md:ml-2">
+								<label class="block mb-2 text-sm font-bold text-gray-700 dark:text-white" for="password">
+                                    Contraseña
+                                </label>
+								<input
+                                    class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border border-gray-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="password"
+                                    type="password"
+                                    placeholder="******************"
+                                />
+							
+							</div>
+							<div class="md:ml-2">
+								<label class="block mb-2 text-sm font-bold text-gray-700 dark:text-white" for="c_password">
+                                    Confirmar Contraseña
+                                </label>
+								<input
+                                    class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="c_password"
+                                    type="password"
+                                    placeholder="******************"
+                                />
+							</div>
+						</div>
+						<div class="mb-6 text-center">
+							<button
+                                class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 dark:bg-blue-700 dark:text-white dark:hover:bg-blue-900 focus:outline-none focus:shadow-outline"
+                                type="button"
+                            >
+                                Registrar Persona
+                            </button>
+						</div>
+						<hr class="mb-6 border-t" />
+						<div class="text-center">
+							<a class="inline-block text-sm text-blue-500 dark:text-blue-500 align-baseline hover:text-blue-800"
+								href="#">
+								Forgot Password?
+							</a>
+						</div>
+						<div class="text-center">
+							<a class="inline-block text-sm text-blue-500 dark:text-blue-500 align-baseline hover:text-blue-800"
+								href="./index.html">
+								Already have an account? Login!
+							</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 </template>
