@@ -36,3 +36,19 @@ def save_personas(datos_persona:model_personas):
     personas.append(datos_persona)
     return "Datos guardados correctamente"
 
+
+@persona.put('/personas/{persona_id}')
+def update_persona(persona_id: int, updated_persona: model_personas):
+    for index, persona in enumerate(personas):
+        if persona.id == persona_id:
+            personas[index] = updated_persona
+            return "Datos actualizados correctamente"
+    raise HTTPException(status_code=404, detail="Persona no encontrada")
+
+@persona.delete('/personas/{persona_id}')
+def delete_persona(persona_id: int):
+    for index, persona in enumerate(personas):
+        if persona.id == persona_id:
+            del personas[index]
+            return "Datos eliminados correctamente"
+    raise HTTPException(status_code=404, detail="Persona no encontrada")
