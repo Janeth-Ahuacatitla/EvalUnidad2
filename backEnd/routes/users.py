@@ -14,7 +14,7 @@ def get_db():
     finally:
         db.close()
         
-@user.get("/users/", response_model=List[schemas.users.User], tags=["Usuarios"], dependencies=[Depends(Portador())])
+@user.get("/users/", response_model=List[schemas.users.User], tags=["Usuarios"])
 def read_users(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
     db_users= crud.users.get_users(db=db, skip=skip, limit=limit)
     return db_users
@@ -47,10 +47,10 @@ def delete_user(id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Usuario no existe, no se pudo eliminar")
     return db_user
 
-@user.post("/login",tags=['autenticacion'])
-def login(usuario:schemas.users.UserLogin):
-    if usuario.usuario == 'rlunas' and usuario.password == '1234':
-        token:str=solicita_token(usuario.dict())
-        return JSONResponse(status_code=200, content=token)
-    else:
-        return JSONResponse(content={'mensaje':'Acceso denegado'},status_code=404)
+# @user.post("/login",tags=['autenticacion'])
+# def login(usuario:schemas.users.UserLogin):
+#     if usuario.usuario == 'rlunas' and usuario.password == '1234':
+#         token:str=solicita_token(usuario.dict())
+#         return JSONResponse(status_code=200, content=token)
+#     else:
+#         return JSONResponse(content={'mensaje':'Acceso denegado'},status_code=404)
