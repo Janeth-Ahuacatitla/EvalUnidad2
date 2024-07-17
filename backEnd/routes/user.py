@@ -28,7 +28,7 @@ def read_user(id: int, db: Session = Depends(get_db)):
 
 @user.post("/users/", response_model=schemas.users.User, tags=["Usuarios"])
 def create_user(user: schemas.users.UserCreate, db: Session = Depends(get_db)):
-    db_user = crud.users.get_user_by_usuario(db, usuario=user.usuario)
+    db_user = crud.users.get_user_by_usuario(db, usuario=user.Nombre_Usuario)
     if db_user:
         raise HTTPException(status_code=400, detail="Usuario existente intenta nuevamente")
     return crud.users.create_user(db=db, user=user)
@@ -47,10 +47,10 @@ def delete_user(id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Usuario no existe, no se pudo eliminar")
     return db_user
 
-# @user.post("/login",tags=['autenticacion'])
-# def login(usuario:schemas.users.UserLogin):
-#     if usuario.usuario == 'rlunas' and usuario.password == '1234':
-#         token:str=solicita_token(usuario.dict())
-#         return JSONResponse(status_code=200, content=token)
-#     else:
-#         return JSONResponse(content={'mensaje':'Acceso denegado'},status_code=404)
+@user.post("/login",tags=['autenticacion'])
+def login(usuario:schemas.users.UserLogin):
+    if usuario.usuario == 'rlunas' and usuario.password == '1234':
+        token:str=solicita_token(usuario.dict())
+        return JSONResponse(status_code=200, content=token)
+    else:
+        return JSONResponse(content={'mensaje':'Acceso denegado'},status_code=404)

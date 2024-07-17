@@ -1,11 +1,11 @@
 from fastapi import APIRouter, HTTPException, Depends, Request
 from sqlalchemy.orm import Session
-import crud.roles, config.db, schemas.roles, models.roles
+import crud.rols, config.db, schemas.roles, models.rols
 from typing import List
 
 rol = APIRouter()
 
-models.roles.Base.metadata.create_all(bind=config.db.engine)
+models.rols.Base.metadata.create_all(bind=config.db.engine)
 
 def get_db():
     db = config.db.SessionLocal()
@@ -14,43 +14,35 @@ def get_db():
     finally:
         db.close()
         
-@rol.get("/roles/", response_model=List[schemas.roles.Roles], tags=["roles"])
-def read_rol(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
-    db_roles= crud.roles.get_roles(db=db, skip=skip, limit=limit)
-    return db_roles
+@rol.get("/rols/", response_model=List[schemas.roles.Rol], tags=["Roles"])
+def read_rols(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+    db_rols= crud.rols.get_rols(db=db, skip=skip, limit=limit)
+    return db_rols
 
-@rol.post("/roles/{id}", response_model=schemas.roles.Roles, tags=["roles"])
+@rol.post("/rol/{id}", response_model=schemas.roles.Rol, tags=["Roles"])
 def read_rol(id: int, db: Session = Depends(get_db)):
-    db_roles= crud.roles.get_roles(db=db, id=id)
-    if db_roles is None:
-        raise HTTPException(status_code=404, detail="User not found")
-    return db_roles
+    db_rol= crud.rols.get_rol(db=db, id=id)
+    if db_rol is None:
+        raise HTTPException(status_code=404, detail="Rol not found")
+    return db_rol
 
-@rol.post("/roles/", response_model=schemas.roles.Roles, tags=["Roles"])
-def create_rol(rol: schemas.roles.RolesCreate, db: Session = Depends(get_db)):
-    db_roles = crud.roles.get_rol_by_nombre(db, rol=rol.Nombre)
-    if db_person:
-        raise HTTPException(status_code=400, detail="Usuario existente intenta nuevamente")
-    return crud.persons.create_person(db=db, person=person)
+@rol.post("/rols/", response_model=schemas.roles.Rol, tags=["Roles"])
+def create_rol(rol: schemas.roles.RolCreate, db: Session = Depends(get_db)):
+    db_rol = crud.rols.get_rol_by_nombre(db, nombre=rol.Nombre)
+    if db_rol:
+        raise HTTPException(status_code=400, detail="Rol existente intenta nuevamente")
+    return crud.rols.create_rol(db=db, rol=rol)
 
-@rol.put("/roles/{id}", response_model=schemas.roles.Roles, tags=["roles"])
-def update_Roles(id: int, rol: schemas.roles.RolesUpdate, db: Session = Depends(get_db)):
-    db_roles = crud.roles.update_roles(db=db, id=id, rol=rol)
-    if db_roles is None:
+@rol.put("/rol/{id}", response_model=schemas.roles.Rol, tags=["Roles"])
+def update_rol(id: int, rol: schemas.roles.RolUpdate, db: Session = Depends(get_db)):
+    db_rol = crud.rols.update_rol(db=db, id=id, rol=rol)
+    if db_rol is None:
         raise HTTPException(status_code=404, detail="Usuario no existe, no actualizado")
-    return db_roles
+    return db_rol
 
-@rol.delete("/roles/{id}", response_model=schemas.roles.Roles, tags=["Roles"])
-def delete_roles(id: int, db: Session = Depends(get_db)):
-    db_roles = crud.roles.delete_rol(db=db, id=id)
-    if db_roles is None:
+@rol.delete("/rol/{id}", response_model=schemas.roles.Rol, tags=["Roles"])
+def delete_rol(id: int, db: Session = Depends(get_db)):
+    db_rol = crud.rols.delete_rol(db=db, id=id)
+    if db_rol is None:
         raise HTTPException(status_code=404, detail="Usuario no existe, no se pudo eliminar")
-    return db_roles
-
-# @user.post("/login",tags=['autenticacion'])
-# def login(usuario:schemas.users.UserLogin):
-#     if usuario.usuario == 'rlunas' and usuario.password == '1234':
-#         token:str=solicita_token(usuario.dict())
-#         return JSONResponse(status_code=200, content=token)
-#     else:
-#         return JSONResponse(content={'mensaje':'Acceso denegado'},status_code=404)
+    return db_rol

@@ -1,25 +1,23 @@
 from typing import List, Union
 from pydantic import BaseModel
-from datetime import datetime
+from datetime import datetime, date
 
-class RolesBase(BaseModel):
-    Descripcion: str
+class RolBase(BaseModel):
     Nombre: str
+    Descripcion: str
     Estatus: bool
     Fecha_Registro: datetime
     Fecha_Actualizacion: datetime
 
-class RolesCreate(RolesBase):
+class RolCreate(RolBase):
     pass
 
-class RolesUpdate(RolesBase):
+class RolUpdate(RolBase):
     pass
 
-class Roles(RolesBase):
-    id: int
-    #owner_id: int clave foranea
+class Rol(RolBase):
+    ID: int
     class Config:
         orm_mode = True
 
 
-   
