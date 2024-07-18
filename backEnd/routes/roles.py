@@ -31,7 +31,7 @@ def read_rol(id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Rol not found")
     return db_rol
 
-@rol.post("/rols/", response_model=schemas.roles.Rol, tags=["Roles"], dependencies=[Depends(Portador())])
+@rol.post("/rols/", response_model=schemas.roles.Rol, tags=["Roles"])
 def create_rol(rol: schemas.roles.RolCreate, db: Session = Depends(get_db)):
     db_rol = crud.rols.get_rol_by_nombre(db, nombre=rol.Nombre)
     if db_rol:

@@ -57,7 +57,7 @@ def delete_user(id: int, db: Session = Depends(get_db)):
 
 @user.post("/login/", response_model=schemas.users.UserLogin, tags=["User Login"])
 def read_credentials(usuario:schemas.users.UserLogin, db: Session = Depends(get_db)):
-    db_credentials = crud.users.get_user_by_creentials(db, username=usuario.Nombre_Usuario, correo=usuario.Correo_Electronico, telefono=usuario.Numero_Telefonico_Movil , password=usuario.Contrasena)
+    db_credentials = crud.users.get_user_by_creentials(db, username=usuario.Nombre_Usuario, correo=usuario.Correo_electronico, telefono=usuario.Numero_Telefonico_Movil , password=usuario.Contrasena)
     if db_credentials is None:
         return JSONResponse(content={'mensaje':'Acceso denegado'},status_code=404)
     token:str=solicita_token(usuario.dict())

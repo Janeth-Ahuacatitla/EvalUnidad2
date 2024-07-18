@@ -33,7 +33,7 @@ def read_rol(id_user: int, id_rol: int, db: Session = Depends(get_db)):
     return db_userrol
 
 
-@userrol.post("/userrols/", response_model=schemas.usersrols.UserRol, tags=["Usuarios Roles"], dependencies=[Depends(Portador())])
+@userrol.post("/userrols/", response_model=schemas.usersrols.UserRol, tags=["Usuarios Roles"])
 def create_user(userrol: schemas.usersrols.UserRolCreate, db: Session = Depends(get_db)):
     db_userrol = crud.usersrols.get_userrol(db=db, id_user=userrol.Usuario_ID, id_rol=userrol.Rol_ID)
     print (db_userrol)
@@ -41,7 +41,7 @@ def create_user(userrol: schemas.usersrols.UserRolCreate, db: Session = Depends(
         raise HTTPException(status_code=400, detail="Usuario existente intenta nuevamente")
     return crud.usersrols.create_userrol(db=db, userrol=userrol)
 
-@userrol.put("/userrol/{id_user}/{id_rol}", response_model=schemas.usersrols.UserRol, tags=["Usuarios Roles"], dependencies=[Depends(Portador())])
+@userrol.put("/userrol/{id_user}/{id_rol}", response_model=schemas.usersrols.UserRol, tags=["Usuarios Roles"],dependencies=[Depends(Portador())])
 def update_user(id_user: int, id_rol: int, userrol: schemas.usersrols.UserRolUpdate, db: Session = Depends(get_db)):
     db_userrol = crud.usersrols.update_userrol(db=db, id_user=id_user, id_rol=id_rol, userrol=userrol)
     print (db_userrol.Estatus)
@@ -49,7 +49,7 @@ def update_user(id_user: int, id_rol: int, userrol: schemas.usersrols.UserRolUpd
         raise HTTPException(status_code=404, detail="Usuario no existe, no actualizado")
     return db_userrol
 
-@userrol.delete("/userrol/{id_user}/{id_rol}", response_model=schemas.usersrols.UserRol, tags=["Usuarios Roles"], dependencies=[Depends(Portador())])
+@userrol.delete("/userrol/{id_user}/{id_rol}", response_model=schemas.usersrols.UserRol, tags=["Usuarios Roles"],dependencies=[Depends(Portador())])
 def delete_rol(id_user: int, id_rol: int, db: Session = Depends(get_db)):
     db_userrol = crud.usersrols.delete_userrol(db=db, id_user=id_user, id_rol=id_rol)
     if db_userrol is None:
